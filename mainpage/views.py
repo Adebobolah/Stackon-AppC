@@ -12,7 +12,7 @@ from django.views import View
 import pandas as pd
 import joblib
 
-model=joblib.load('stackonmodel.pkl')
+model=joblib.load('stackonModel.pkl')
 
 def resultJson(request):
     data = json.loads(request.body)
