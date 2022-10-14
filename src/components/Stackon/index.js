@@ -13,7 +13,7 @@ import {
   HeroP,
 } from "./HeroElements";
 import Video from "../../videos/bg.mp4";
-const { ethers } = require("hardhat");
+// const { ethers } = require("hardhat");
 const greeterAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
 const HeroSection = ({ disabled = true }) => {
