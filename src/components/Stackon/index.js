@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./HeroSection.css";
-// import { ethers } from "hardhat";
+import { ethers } from "ethers";
 
 import Greeter from "../../artifacts/contracts/Greeter.sol/Greeter.json";
 
