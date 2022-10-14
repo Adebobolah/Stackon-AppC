@@ -1,11 +1,11 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-ethers");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.17",
   paths: {
     artifacts: "./src/artifacts",
-  },
   networks: {
     csc: {
       url: "https://testnet-rpc.coinex.net",
