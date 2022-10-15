@@ -191,26 +191,28 @@ class JsonForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.setState({ result: "" });
-    const url = "https://stackon.herokuapp.com/resultJson";
+ handleSubmit(event) {
+    if (this.setGreeting()) {
+      event.preventDefault();
+      // this.setState({ result: "" });
+      const url = "http://localhost:8000/resultJson";
 
-    const bodyData = JSON.stringify({
-      open_price: this.state.open,
-      "24h_volume": this.state.volume,
-      tweets: this.state.tweets,
-      public_sentiment: this.state.sentiment,
-      nft_500_index: this.state.nft500,
-    });
-    const reqOpt = {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: bodyData,
-    };
-    fetch(url, reqOpt)
-      .then((resp) => resp.json())
-      .then((respJ) => this.setState({ result: respJ.result }));
+      const bodyData = JSON.stringify({
+        open_price: this.state.open,
+        "24h_volume": this.state.volume,
+        tweets: this.state.tweets,
+        public_sentiment: this.state.sentiment,
+        nft_500_index: this.state.nft500,
+      });
+      const reqOpt = {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: bodyData,
+      };
+      fetch(url, reqOpt)
+        .then((resp) => resp.json())
+        .then((respJ) => this.setState({ result: respJ.result }));
+    }
   }
 
   async requestAccount() {
@@ -236,7 +238,6 @@ class JsonForm extends Component {
   }
 
   async setGreeting() {
-    if ((this.state.result = "")) return;
     if (typeof window.ethereum != "undefined") {
       await this.requestAccount();
 
@@ -245,12 +246,10 @@ class JsonForm extends Component {
 
       const contract = new ethers.Contract(greeterAddress, Greeter.abi, signer);
       const transaction = await contract.setGreeting(this.state.result);
-
       await transaction.wait();
-      this.setState({ result: this.state.result });
-      this.fetchGreeting();
     }
   }
+
 
   render() {
     if (!this.state.isLoaded) {
@@ -331,8 +330,6 @@ class JsonForm extends Component {
               </tbody>
             </table>
             <form
-              onLoad={this.handleData}
-              onClick={this.setGreeting()}
               onSubmit={this.handleSubmit}
             >
               <input class="button" type="submit" value="Predict"></input>{" "}
