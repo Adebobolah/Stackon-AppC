@@ -11,6 +11,7 @@ import {
   HeroContent,
   HeroH1,
   HeroP,
+  HeroP2,
 } from "./HeroElements";
 import Video from "../../videos/bg.mp4";
 // const { ethers } = require("hardhat");
@@ -25,6 +26,10 @@ const HeroSection = ({ disabled = true }) => {
       <HeroContent>
         <HeroH1>Predict Your Non-Fungible Digital Assets </HeroH1>
         <HeroP>My Non-Fungible Assets</HeroP>
+        <HeroP2>
+          If you experience delay from getting predictions; kindly reload page
+          or click twice.
+        </HeroP2>
         <JsonForm />
       </HeroContent>
     </HeroContainer>
