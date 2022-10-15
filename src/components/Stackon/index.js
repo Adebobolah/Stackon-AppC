@@ -200,7 +200,7 @@ class JsonForm extends Component {
     if (this.setGreeting()) {
       event.preventDefault();
       // this.setState({ result: "" });
-      const url = "http://localhost:8000/resultJson";
+      const url = "https://stackon.herokuapp.com/resultJson";
 
       const bodyData = JSON.stringify({
         open_price: this.state.open,
