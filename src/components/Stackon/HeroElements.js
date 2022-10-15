@@ -90,6 +90,21 @@ export const HeroP = styled.p`
     font-size: 18px;
   }
 `;
+export const HeroP2 = styled.p`
+  margin-top: 24px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  max-width: 600px;
+
+  @media scrren and (max-width: 840px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+  }
+`;
 
 export const ReviewSection = styled.div`
   bottom: 0;
